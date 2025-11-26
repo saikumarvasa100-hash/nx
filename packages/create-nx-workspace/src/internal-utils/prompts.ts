@@ -23,7 +23,7 @@ export async function determineNxCloud(
   parsedArgs: yargs.Arguments<{ nxCloud: NxCloud }>
 ): Promise<NxCloud> {
   if (parsedArgs.nxCloud) {
-    return parsedArgs.nxCloud;
+    return parsedArgs.nxCloud.toLowerCase() as NxCloud;
   } else if (!parsedArgs.interactive || isCI()) {
     return 'skip';
   } else {
